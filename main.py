@@ -17,3 +17,16 @@ def main():
             print("I'm sorry, let's try again.\n")
 
 main()
+
+persons = ["David", 32, 177, 83, 7, 9, 8, 6]
+
+for person in persons:
+  name = person[0]
+  age = person[1]
+  height = person[2] 
+  weight = person[3]
+  bmi = weight / (height ** 2)
+  food = person(4)
+  water = person(5)
+  sleep = person(6)
+  stress = person(7)
