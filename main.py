@@ -1,32 +1,25 @@
+from datetime import datetime
 
-def main():
-    satisfied = False
-    while not satisfied:
-        name = input("Please enter your name:\n")
-        age = ""
-        while not age:
-            try:
-                age = int(input("Please enter your age:\n"))
-            except:
-                print("Please enter age as digits.")
-        we_good = input("Your name is " + name + " and age is " + str(age) + " correct? y/n?\n")
-        we_good = we_good.lower()
-        if(we_good == "yes" or we_good == "yep" or we_good == "y"):
-            satisfied = True
-        else:
-            print("I'm sorry, let's try again.\n")
+user_data = "user_data.csv"
 
-main()
+def query_user_data():
+    #taking in user data of 5 questions - 
+    #food, water, sleep, stress, physical activity
+    #on a scale of 1 to 10
+    data = []
+    print("On the scale of 1 to 10, how would you rate the follow:")
+    data.append(input("Food: "))
+    data.append(input("Water: "))
+    data.append(input("Sleep: "))
+    data.append(input("Stress: "))
+    data.append(input("Physical activity: "))
+    with open(user_data, "a") as my_file:
+        line = str(datetime.today().date()) + ","
+        for response in data:
+            line = line + response + ','
+        line = line[:-1] + "\n"
+        my_file.write(line)
+    print("File saved!")
 
-persons = ["David", 32, 177, 83, 7, 9, 8, 6]
+query_user_data()
 
-for person in persons:
-  name = person[0]
-  age = person[1]
-  height = person[2] 
-  weight = person[3]
-  bmi = weight / (height ** 2)
-  food = person(4)
-  water = person(5)
-  sleep = person(6)
-  stress = person(7)
