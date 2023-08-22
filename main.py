@@ -1,3 +1,5 @@
+import pandas as pd
+import matplotlib.pyplot as plt
 from datetime import datetime
 user_data = "user_data.csv"
 
@@ -37,3 +39,6 @@ except:
 new_data = query_user_data()
 write_user_data(new_data)
 
+time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
+time_series.plot() #make a quick plot to view the data
+plt.show() 
