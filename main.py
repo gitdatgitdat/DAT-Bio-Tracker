@@ -18,8 +18,8 @@ except:
         new_file.write("date, food, water, sleep, stress, activity\n")
 
 new_data = fud.query_user_data()
-fud.write_user_data(new_data)
+fud.write_user_data(new_data, user_data)
 
 time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
 time_series.plot() #make a quick plot to view the data
-plt.show() 
+plt.show()

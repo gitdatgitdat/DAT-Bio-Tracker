@@ -1,5 +1,5 @@
-
 from datetime import datetime
+
 
 def query_user_data() -> list:
     # taking in user data of 5 questions -
@@ -24,7 +24,7 @@ def query_user_data() -> list:
     print("A 1 would indicate very low levels of stress")
     print("A 10 would indicate extreme levels of stress")
     data.append(input("Stress: "))
-    print("On a scale of 1 to 10, how would you rate your physical acvitivty?")
+    print("On a scale of 1 to 10, how would you rate your physical activity?")
     print("A 1 would indicate very low levels of physical activity.")
     print("A 10 would indicate very high levels of physical activity.")
     data.append(input("Physical activity: "))
