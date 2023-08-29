@@ -1,6 +1,6 @@
 from datetime import datetime
 
-# TODO - 
+# TODO - Add inhibitor for nums <1 and >10
 
 def query_user_data() -> list:
     # taking in user data of 5 questions -
