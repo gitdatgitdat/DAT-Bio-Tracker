@@ -1,11 +1,11 @@
-#Disabled pandas. Was upsetting Mac
-#import pandas as pd
-#import matplotlib.pyplot as plt
+
+import pandas as pd
+import matplotlib.pyplot as plt
 from datetime import datetime
 user_data = "[username].csv"
 
 
-# TODO 1-off get user name
+# TODO - 
 
 def query_user_data() -> list:
     # taking in user data of 5 questions -
@@ -60,6 +60,6 @@ except:
 new_data = query_user_data()
 write_user_data(new_data)
 
-#time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
-#time_series.plot() #make a quick plot to view the data
-#plt.show() 
+time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
+time_series.plot() #make a quick plot to view the data
+plt.show() 
