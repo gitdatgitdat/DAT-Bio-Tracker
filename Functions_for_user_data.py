@@ -1,12 +1,11 @@
 
+from datetime import datetime
+
 def query_user_data() -> list:
     # taking in user data of 5 questions -
     # food, water, sleep, stress, physical activity
     # on a scale of 1 to 10
     data = []
-    print("Welcome! May I please have your username?")
-    username = input("Username: ")
-    data.append(username)
     print("On the scale of 1 to 10, how would you rate your eating habits?")
     print("A 1 would indicate very poor eating habits.")
     print("A 10 would indicate perfect eating habits.")
@@ -33,8 +32,8 @@ def query_user_data() -> list:
     return data
 
 
-def write_user_data(new_line: list):
-    with open(user_data, "a") as my_file:
+def write_user_data(new_line: list, file_name: str):
+    with open(file_name, "a") as my_file:
         line = str(datetime.today().date()) + ","
         for response in new_line:
             line = line + response + ','
