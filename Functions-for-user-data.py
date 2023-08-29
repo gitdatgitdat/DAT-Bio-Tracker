@@ -31,3 +31,13 @@ def query_user_data() -> list:
     data.append(input("Physical activity: "))
     print("Wonderful! Please check in again tomorrow.")
     return data
+
+
+def write_user_data(new_line: list):
+    with open(user_data, "a") as my_file:
+        line = str(datetime.today().date()) + ","
+        for response in new_line:
+            line = line + response + ','
+        line = line[:-1] + "\n"
+        my_file.write(line)
+    print("File saved!")
