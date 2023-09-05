@@ -6,7 +6,7 @@ from tkinter import *
 from tkinter import ttk
 
 
-# TODO - Make file saved use username as title and reference
+# TODO - main.py seems to get upset after third call
 
 print("Welcome! May I please have your username?")
 username = input("Username: ")
