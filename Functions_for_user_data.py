@@ -1,6 +1,7 @@
+
 from datetime import datetime
 
-# TODO - Add inhibitor for nums <1 and >10
+# TODO - 
 
 def query_user_data() -> list:
     # taking in user data of 5 questions -
@@ -31,7 +32,6 @@ def query_user_data() -> list:
     data.append(input("Physical activity: "))
     print("Wonderful! Please check in again tomorrow.")
     return data
-
 
 def write_user_data(new_line: list, file_name: str):
     with open(file_name, "a") as my_file:

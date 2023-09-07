@@ -3,8 +3,7 @@ import pandas as pd
 import Functions_for_user_data as fud
 import matplotlib.pyplot as plt
 
-
-# TODO - main.py seems to get upset after third call
+# TODO - DT -> Pandas, QT -> TK
 
 print("Welcome! May I please have your username?")
 username = input("Username: ")
