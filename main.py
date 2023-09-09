@@ -10,7 +10,7 @@ except ImportError:
     import Tkinter as tk
     import ttk
 
-# TODO - main.py seems to get upset after third call
+# TODO - DT -> Pandas, QT -> TK
 
 print("Welcome! May I please have your username?")
 username = input("Username: ")
