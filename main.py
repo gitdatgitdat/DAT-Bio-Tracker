@@ -23,8 +23,8 @@ except:
     with open(user_data, "a") as new_file:
         new_file.write("date, food, water, sleep, stress, activity\n")
 
-new_data = fud.query_user_data()
-fud.write_user_data(new_data, user_data)
+#new_data = fud.query_user_data()
+#fud.write_user_data(new_data, user_data)
 
 time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
 print(time_series)
