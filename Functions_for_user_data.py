@@ -1,6 +1,18 @@
-
 from datetime import datetime
+import matplotlib.pyplot as plt
+import pandas as pd
 
+def __init__():
+    print("Welcome! May I please have your username?")
+    username = input("Username: ")
+    username = username.lower()
+    user_data = username + ".csv"
+
+    try:
+        open(user_data, "r")
+    except:
+        with open(user_data, "a") as new_file:
+            new_file.write("date, food, water, sleep, stress, activity\n")
 # TODO - 
 
 def query_user_data() -> list:
@@ -41,3 +53,9 @@ def write_user_data(new_line: list, file_name: str):
         line = line[:-1] + "\n"
         my_file.write(line)
     print("File saved!")
+
+def plot_by_time():
+    time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
+    print(time_series)
+    time_series.plot() #make a quick plot to view the data
+    plt.show()
