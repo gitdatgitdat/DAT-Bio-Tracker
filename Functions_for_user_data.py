@@ -3,7 +3,7 @@ from datetime import datetime
 
 # TODO - 
 
-def query_user_data():
+def query_user_data_CLI():
     # TODO - make this make an entry screen
     # taking in user data of 5 questions -
     # food, water, sleep, stress, physical activity
