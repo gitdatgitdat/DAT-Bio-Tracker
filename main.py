@@ -50,10 +50,9 @@ def plot_by_time():
     plt.show()
 
 def input_data():
-    #fud.write_user_data(fud.query_user_data_CLI(), user_data)
-    query_user_data_GUI()
+    fud.write_user_data(fud.query_user_data_CLI(), user_data)
 
-def query_user_data_GUI():
+def show_user_data_GUI():
     top = tk.Toplevel(root)
     
     top.title("Please input data")
@@ -62,37 +61,36 @@ def query_user_data_GUI():
     top.columnconfigure(0, weight = 1)
     top.rowconfigure(0, weight = 1)
     
-    food = tk.StringVar()
     ttk.Label(input_frame, text = "On the scale of 1 to 10, how would you rate your eating habits?").grid(column = 1, row = 1, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "1 indicates poor eating habits and 10 indicates perfect eating.").grid(column = 1, row = 2, sticky = tk.W)
     food_entry = ttk.Entry(input_frame, width=3, textvariable=food)
     food_entry.grid(column = 2, row = 2, sticky = tk.E)
     
-    water = tk.StringVar()
     ttk.Label(input_frame, text = "On the scale of 1 to 10, how would you rate your water intake?").grid(column = 1, row = 3, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "1 indicates not drinking enough and 10 indicates perfect amount.").grid(column = 1, row = 4, sticky = tk.W)
     water_entry = ttk.Entry(input_frame, width=3, textvariable=water)
     water_entry.grid(column = 2, row = 4, sticky = tk.E)
-    
-    sleep = tk.StringVar()
+
     ttk.Label(input_frame, text = "On the scale of 1 to 10, how would you rate your sleep?").grid(column = 1, row = 5, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "1 indicates poor sleep quality and 10 indicates perfect sleep.").grid(column = 1, row = 6, sticky = tk.W)
     sleep_entry = ttk.Entry(input_frame, width=3, textvariable=sleep)
     sleep_entry.grid(column = 2, row = 6, sticky = tk.E)
     
-    stress = tk.StringVar()
     ttk.Label(input_frame, text = "On the scale of 1 to 10, how would you rate your stress?").grid(column = 1, row = 7, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "PLEASE NOTE that the scale is reversed for this question.").grid(column = 1, row = 8, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "1 indicates little to no stress and 10 indicates extreme stress.").grid(column = 1, row = 9, sticky = tk.W)
     stress_entry = ttk.Entry(input_frame, width=3, textvariable=stress)
     stress_entry.grid(column = 2, row = 9, sticky = tk.E)
     
-    activity = tk.StringVar()
     ttk.Label(input_frame, text = "On the scale of 1 to 10, how would you rate your physical activity?").grid(column = 1, row = 10, sticky = (tk.W, tk.E))
     ttk.Label(input_frame, text = "1 indicates minimal activity and 10 indicates a very high level of activity.").grid(column = 1, row = 11, sticky = tk.W)
     activity_entry = ttk.Entry(input_frame, width=3, textvariable=activity)
     activity_entry.grid(column = 2, row = 11, sticky = tk.E)
+    
+    ttk.Button(input_frame, text = "Confirm Entries", command = write_GUI_reponses).grid(column = 1, row = 12, sticky = tk.S)
 
+def write_GUI_reponses():
+    fud.write_user_data([food.get(), water.get(), sleep.get(), stress.get(), activity.get()], user_data)
 
 root = tk.Tk()
 root.title("DAT Biotracker")
@@ -101,9 +99,15 @@ mainframe.grid(column = 0, row = 0, sticky=(tk.N, tk.W, tk.E, tk.S))
 root.columnconfigure(0, weight = 1)
 root.rowconfigure(0, weight = 1)
 
+food = tk.StringVar()
+water = tk.StringVar()
+sleep = tk.StringVar()
+stress = tk.StringVar()
+activity = tk.StringVar()
+
 ttk.Label(mainframe, text = "Welcome").grid(column = 2, row = 1, sticky = tk.N)
 
-ttk.Button(mainframe, text = "Input", command = input_data).grid(column = 1, row = 3, sticky = tk.S)
+ttk.Button(mainframe, text = "Input", command = show_user_data_GUI).grid(column = 1, row = 3, sticky = tk.S)
 ttk.Button(mainframe, text = "Output", command = plot_by_time).grid(column = 2, row = 3, sticky = tk.S)
 ttk.Button(mainframe, text='Example calendar with events', command = show_example_calendar).grid(column = 3, row = 3, sticky = tk.S)
 
