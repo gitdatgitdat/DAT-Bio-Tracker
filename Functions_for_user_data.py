@@ -1,9 +1,10 @@
-
 from datetime import datetime
+
 
 # TODO - 
 
-def query_user_data() -> list:
+def query_user_data_CLI():
+    # TODO - make this make an entry screen
     # taking in user data of 5 questions -
     # food, water, sleep, stress, physical activity
     # on a scale of 1 to 10
