@@ -105,7 +105,7 @@ sleep = tk.StringVar()
 stress = tk.StringVar()
 activity = tk.StringVar()
 
-ttk.Label(mainframe, text = "Welcome").grid(column = 2, row = 1, sticky = tk.N)
+ttk.Label(mainframe, text = "Welcome. Please select 'Input' to log your data for the day or 'Output' to view your data thus far.").grid(column = 2, row = 1, sticky = tk.N)
 
 ttk.Button(mainframe, text = "Input", command = show_user_data_GUI).grid(column = 1, row = 3, sticky = tk.S)
 ttk.Button(mainframe, text = "Output", command = plot_by_time).grid(column = 2, row = 3, sticky = tk.S)
