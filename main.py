@@ -12,16 +12,12 @@ except ImportError:
 
 # TODO - DT -> Pandas, QT -> TK
 
-print("Welcome! May I please have your username?")
-username = input("Username: ")
-username = username.lower()
-user_data = username + ".csv"
+#print("Welcome! May I please have your username?")
+#username = input("Username: ")
+#username = username.lower()
+#user_data = username + ".csv"
 
-try:
-    open(user_data, "r")
-except:
-    with open(user_data, "a") as new_file:
-        new_file.write("date, food, water, sleep, stress, activity\n")
+
 
 
 #new_data = fud.query_user_data()
@@ -44,6 +40,7 @@ def show_example_calendar():
     ttk.Label(top, text="Hover over the events.").pack()
 
 def plot_by_time():
+    user_data = user.get().lower() + ".csv"
     time_series = pd.read_csv(user_data) # reload the saved data as a dataframe for analysis
     print(time_series)
     time_series.plot() #make a quick plot to view the data
@@ -90,7 +87,20 @@ def show_user_data_GUI():
     ttk.Button(input_frame, text = "Confirm Entries", command = write_GUI_reponses).grid(column = 1, row = 12, sticky = tk.S)
 
 def write_GUI_reponses():
-    fud.write_user_data([food.get(), water.get(), sleep.get(), stress.get(), activity.get()], user_data)
+    file_name = user.get().lower() + ".csv"
+    fud.write_user_data([food.get(), water.get(), sleep.get(), stress.get(), activity.get()], file_name)
+
+def set_user():
+    username = user.get().lower()
+    print(username)
+    user_data = username + ".csv"
+    print(user_data)
+    try:
+        open(user_data, "r")
+    except:
+        with open(user_data, "a") as new_file:
+            new_file.write("date, food, water, sleep, stress, activity\n")
+
 
 root = tk.Tk()
 root.title("DAT Biotracker")
@@ -104,8 +114,14 @@ water = tk.StringVar()
 sleep = tk.StringVar()
 stress = tk.StringVar()
 activity = tk.StringVar()
+user = tk.StringVar()
 
 ttk.Label(mainframe, text = "Welcome. Please select 'Input' to log your data for the day or 'Output' to view your data thus far.").grid(column = 2, row = 1, sticky = tk.N)
+
+ttk.Label(mainframe, text = "User:").grid(column = 1, row = 2, sticky = tk.W)
+ttk.Entry(mainframe, width = 10, textvariable = user).grid(column = 2, row = 2, sticky = (tk.W, tk.E))
+ttk.Button(mainframe, text = "Set user", command = set_user).grid(column = 3, row = 2, sticky = tk.E)
+
 
 ttk.Button(mainframe, text = "Input", command = show_user_data_GUI).grid(column = 1, row = 3, sticky = tk.S)
 ttk.Button(mainframe, text = "Output", command = plot_by_time).grid(column = 2, row = 3, sticky = tk.S)
