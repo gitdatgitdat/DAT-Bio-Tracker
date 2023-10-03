@@ -46,7 +46,7 @@ def plot_by_time():
     time_series.plot() #make a quick plot to view the data
     plt.show()
 
-def input_data():
+def input_data(): #Bug from cml that is currently unreachable
     fud.write_user_data(fud.query_user_data_CLI(), user_data)
 
 def show_user_data_GUI():
@@ -89,6 +89,11 @@ def show_user_data_GUI():
 def write_GUI_reponses():
     file_name = user.get().lower() + ".csv"
     fud.write_user_data([food.get(), water.get(), sleep.get(), stress.get(), activity.get()], file_name)
+    food.set("")
+    water.set("")
+    sleep.set("")
+    stress.set("")
+    activity.set("")
 
 def set_user():
     username = user.get().lower()
